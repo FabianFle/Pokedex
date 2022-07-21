@@ -1,0 +1,252 @@
+body {
+    background-image: url(img/background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: rgb(235, 235, 235);
+    margin: 0%;
+    font-family: 'Grandstander', sans-serif;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 36px;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.d-none {
+    display: none;
+}
+
+.nav-header {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+
+}
+
+.pokeball {
+    width: 70px;
+    height: auto;
+    border-radius: 100%;
+
+}
+
+.input-field {
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    outline: none;
+}
+
+#allpokemon {
+    margin-top: 25px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokemon-card {
+    background-color: rgb(0, 0, 0);
+    background-image: url(img/cardBackground.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    cursor: pointer;
+    width: 250px;
+    height: 20vh;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: -2px 3px 9px 2px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card img {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40%;
+}
+
+.pokemon-card-class {
+    color: white;
+    padding: 4px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.info-top-id {
+    margin-block-start: 0%;
+}
+
+.info-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.poke-types {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100px;
+}
+
+.single-pokemon {
+    z-index: 99;
+    position: fixed;
+    top: 10%;
+    left: 35%;
+    height: 80%;
+    width: 30%;
+    box-shadow: -6px 12px 15px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+}
+
+.single-poke-top {
+    height: 50%;
+    padding: 24px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-poke-close {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.single-poke-close img {
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+}
+
+.single-poke-close img:hover {
+    background-color: rgba(255, 255, 255, 0.175);
+    border-radius: 100%;
+}
+
+#pokemon-img {
+    width: 400px;
+    height: auto;    
+}
+
+.img-container {
+    margin-top: -340px;
+}
+
+.poke-info-container {
+    background-color: white;
+    height: 50%;
+    border-radius: 40px;
+    margin-top: -40px;
+}
+
+/* Card-Background-Colors */
+
+.card-grass {
+    background-color: #7ACD52;
+}
+
+.card-fire {
+    background-color: #F75231;
+}
+
+.card-water {
+    background-color: #389BFE;
+}
+
+.card-ground {
+    background-color: #D6B55A;
+}
+
+.card-bug {
+    background-color: #ADBD20;
+}
+
+.card-normal {
+    background-color: #ADA594;
+}
+
+.card-flying {
+    background-color: #9BACF7;
+}
+
+.card-poison {
+    background-color: #B55AA5;
+}
+
+.card-fairy {
+    background-color: #E5A5E5;
+}
+
+.card-fighting {
+    background-color: #A55239;
+}
+
+.card-rock {
+    background-color: #BCA459;
+}
+
+.card-electric {
+    background-color: #FFC631;
+}
+
+.card-steel {
+    background-color: #ADADC6;
+}
+
+.card-ice {
+    background-color: #5ACDE7;
+}
+
+.card-ghost {
+    background-color: #6363B5;
+}
+
+.card-psychic {
+    background-color: #FE73A5;
+}
+
+.card-dragon {
+    background-color: #7A62E7;
+}
