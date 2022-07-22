@@ -21,7 +21,7 @@
                 <img class="pokeball" src="./img/pokeball.png">
                 <h1>Pokédex</h1>
             </div>
-            <input class="input-field" type="text" id="search-field" onkeydown="searchPokemon()"
+            <input class="input-field" type="text" id="search-field" onkeyup="searchPokemon()"
                 placeholder="Search Pokémon by name or ID..">
         </nav>
     </header>
@@ -29,7 +29,7 @@
     <div class="single-pokemon d-none">
         <div class="single-poke-top">
             <div class="single-poke-close">
-                <img src="./img/close.png">
+                <!-- <img src="./img/close.png"> -->
             </div>
             <h1 id="pokemon-name"></h1>
         </div>
