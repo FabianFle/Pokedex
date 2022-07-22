@@ -1,7 +1,7 @@
 let allpokemons = [];
 let currentPokemon;
 let startNumber = 1;
-let pokemonNumbers = 100;
+let pokemonNumbers = 50;
 
 
 async function loadPokemon() {
@@ -39,7 +39,7 @@ function loadPokeClasses(i) {
 
 
 function searchPokemon() {
-    let search = document.getElementById("inputfield").value;
+    let search = document.getElementById("search-field").value;
     search = search.toLowerCase();
     console.log(search);
     for (let i = 1; i < pokemonNumbers; i++) {
