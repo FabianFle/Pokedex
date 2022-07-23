@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/pokeball.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/pokeball.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
@@ -26,22 +26,9 @@
         </nav>
     </header>
 
-    <div class="single-pokemon d-none">
-        <div class="single-poke-top">
-            <div class="single-poke-close">
-                <!-- <img src="./img/close.png"> -->
-            </div>
-            <h1 id="pokemon-name"></h1>
-        </div>
-        <div class="poke-info-container">
-            <div class="img-container">
-                <img id="pokemon-img">
-            </div>
-        </div>
-    </div>
+    <div id="onePokemon" onload="openPokemon()"></div>
 
     <div id="allpokemon"></div>
-    <div id="openPokemon"></div>
 </body>
 
 </html>

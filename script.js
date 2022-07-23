@@ -1,7 +1,7 @@
 let allpokemons = [];
 let currentPokemon;
 let startNumber = 1;
-let pokemonNumbers = 50;
+let pokemonNumbers = 30;
 
 
 async function loadPokemon() {
@@ -11,7 +11,7 @@ async function loadPokemon() {
         currentPokemon = await res.json();
         allpokemons.push(currentPokemon);
         // console.log(currentPokemon);
-        renderPokemonCard(currentPokemon, i);                
+        renderPokemonCard(currentPokemon, i);
     }
 }
 
@@ -20,7 +20,7 @@ async function renderPokemonCard(currentPokemon, i) {
     let pokemonName = firstLetter(currentPokemon['name']);
     let pokeImg = currentPokemon['sprites']['other']['official-artwork']['front_default'];
     let pokeCard = document.getElementById('allpokemon');
-    pokeCard.innerHTML += pokeCards(i, pokemonName, currentPokemon, pokeImg);        
+    pokeCard.innerHTML += pokeCards(i, pokemonName, currentPokemon, pokeImg);
     loadPokeClasses(i);
 }
 
@@ -33,7 +33,7 @@ function loadPokeClasses(i) {
             document.getElementById(`pokemonCard${i}`).classList.add(`card-${pokeClass}`);
         } else {
             document.getElementById(`classes${i}`).innerHTML += `<span class="pokemon-card-class card-${pokeClass}">${pokeClass}</span>`;
-        }        
+        }
     }
 }
 
@@ -58,10 +58,16 @@ function searchPokemon() {
 }
 
 
-function firstLetter(string){
+function firstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function openPokemon() {
+function closePokemon() {
+    document.getElementById('onePokemon').classList.add('d-none');
+}
 
+
+function openPokemon() {
+    let openOnePoke = document.getElementById('onePokemon');
+    openOnePoke.innerHTML += openOnePokecard();
 }
