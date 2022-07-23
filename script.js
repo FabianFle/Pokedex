@@ -58,6 +58,24 @@ function searchPokemon() {
 }
 
 
+function openResponsivMenu() {
+    document.getElementById('responsMenu').classList.remove('nav-header')
+    document.getElementById('responsMenu').classList.add('navHeaderRespons')
+    document.getElementById('closeMenu').classList.remove('d-none')
+    document.getElementById('openMenu').classList.add('d-none')
+    document.getElementById('h1').classList.remove('d-none')
+    document.getElementById('search-field').classList.remove('d-none')
+}
+
+function closeResponsMenu() {
+    document.getElementById('responsMenu').classList.add('nav-header')
+    document.getElementById('responsMenu').classList.remove('navHeaderRespons')
+    document.getElementById('closeMenu').classList.add('d-none')
+    document.getElementById('openMenu').classList.remove('d-none')
+
+}
+
+
 function firstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }

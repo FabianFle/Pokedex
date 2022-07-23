@@ -16,13 +16,15 @@
 <body onload="loadPokemon()">
 
     <header>
-        <nav class="nav-header">
+        <nav class="nav-header" id="responsMenu">
+            <img src="img/close.png" onclick="closeResponsMenu()" class="closeResponsMenu d-none" id="closeMenu">
             <div class="header-title">
                 <img class="pokeball" src="./img/pokeball.png">
-                <h1>Pokédex</h1>
+                <h1 id="h1">Pokédex</h1>
             </div>
             <input class="input-field" type="text" id="search-field" onkeyup="searchPokemon()"
                 placeholder="Search Pokémon by name or ID..">
+            <img src="img/menu.png" id="openMenu" class="openMenu" onclick="openResponsivMenu()">
         </nav>
     </header>
 

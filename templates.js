@@ -22,7 +22,7 @@ function openOnePokecard() {
     <div class="single-pokemon">
         <div class="single-poke-top">
             <div class="single-poke-close">
-                <img onclick="closePokemon()" src="./img/close.png">
+                <img class="closePokemon" onclick="closePokemon()" src="./img/close.png">
             </div>
             <h1 id="pokemon-name"></h1>
             <h1 id="pokemon-id">#</h1>

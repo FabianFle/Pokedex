@@ -46,6 +46,7 @@ h2 {
 }
 
 .pokeball {
+    margin: 10px;
     width: 70px;
     height: auto;
     border-radius: 100%;
@@ -82,6 +83,13 @@ h2 {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+}
+
+.closePokemon {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10%;
+    padding: 5px;
 }
 
 .pokemon-card {
@@ -158,6 +166,7 @@ h2 {
     width: 30%;
     box-shadow: -6px 12px 15px 2px rgba(0, 0, 0, 0.5);
     border-radius: 40px;
+    border: 2px solid white;
 }
 
 .single-poke-top {
@@ -277,4 +286,77 @@ h2 {
 
 .card-Dark {
     background-color: #607D8B;
+}
+
+.openMenu {
+    margin: 10px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.openMenu:hover {
+    cursor: pointer;
+    background-color: rgb(212, 212, 212);
+}
+
+.closeResponsMenu {
+    padding: 5px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.closeResponsMenu:hover {
+    cursor: pointer;
+    background-color: rgb(212, 212, 212);
+}
+
+.navHeaderRespons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    border-radius: 10px;
+    border: 2px solid white;
+    position: fixed;
+    height: 90vh;
+    z-index: 5;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+}
+
+@media(min-width: 801px) {
+
+    .openMenu {
+        display: none;
+    }
+
+    .navHeaderRespons {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .header-title {
+        justify-content: center;
+    } 
+
+    .input-field {
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+
+    h1 {
+        display: none;
+    }
 }
