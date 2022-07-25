@@ -1,7 +1,7 @@
 function pokeCards(i, pokemonName, currentPokemon, pokeImg) {
     return /*html*/`
 
-    <div onclick="openPokemon()" class="pokemon-card" id="pokemonCard${i}">
+    <div onclick="loadPokeInfo(${i})" class="pokemon-card" id="pokemonCard${i}">
         <div class="pokeBackground">        
             <div class="info-top">
                 <h2 class="info-top-id" id="pokemonName${i}">${pokemonName}</h2> 
@@ -13,24 +13,57 @@ function pokeCards(i, pokemonName, currentPokemon, pokeImg) {
             <img src="${pokeImg}">   
         </div>     
     </div>
-`;}
+`;
+}
 
 
-function openOnePokecard() {
+function openOnePokecard(i) {
+
+    let url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png`;
+
     return /*html*/`
+    <div class="center"> 
+        <button onclick="slideDown(${i})" id="slideDown" class="slideButton"><img src="img/arrowLeft.png"></button>
 
-    <div class="single-pokemon">
-        <div class="single-poke-top">
-            <div class="single-poke-close">
-                <img class="closePokemon" onclick="closePokemon()" src="./img/close.png">
+        <div class="pokeInfoCard">
+        <img class="closePokemon" onclick="closePokemon()" src="./img/close.png">
+                <div id="pokeInfoTop${i}" class="pokeInfoTop">
+                    <div>
+                        <h1> #${currentPokemon['id']} </h1>
+                        <h1>${currentPokemon['name']}</h1>
+                        <div id="pokeInfoTypes${i}" class="pokeInfoTypes"></div>
+                    </div>
+                    <img id="pokeInfoImg" class="pokeInfoImg" alt="Image not found" loading="lazy" src= ${url}>
+                </div>
+
+                <div class="pokeInfoDetails_bg">
+
+                    <div id="infoDetails" class="infoDetails">
+                        <h1>Base Stats</h1>
+                        <div id="stats${i}" class="stats"></div>
+                    </div>
+                </div>
             </div>
-            <h1 id="pokemon-name"></h1>
-            <h1 id="pokemon-id">#</h1>
+
+        <button onclick="slideUp(${i})" class="slideButton"><img src="img/arrowRight.png"></button>
+    </div>
+`;
+}
+
+function showStats(i, j, info) {
+    return `
+    <div class="infoStats">
+        <div id="infoTitle">
+            ${info['stat']['name']}
         </div>
-        <div class="poke-info-container">
-            <div class="img-container">
-                <img id="pokemon-img" src="">
+        
+        <div class="baseStat">
+            <div class="processbar">
+                <div id="processbarValue${i}${j}" class="processbarValue">
+                    <span>${info['base_stat']}</span>
+                </div>
             </div>
         </div>
     </div>
-`;}
+    `
+}

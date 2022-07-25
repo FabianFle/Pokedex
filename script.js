@@ -1,7 +1,7 @@
 let allpokemons = [];
 let currentPokemon;
 let startNumber = 1;
-let pokemonNumbers = 30;
+let pokemonNumbers = 100;
 
 
 async function loadPokemon() {
@@ -80,12 +80,71 @@ function firstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+
 function closePokemon() {
     document.getElementById('onePokemon').classList.add('d-none');
 }
 
 
-function openPokemon() {
-    let openOnePoke = document.getElementById('onePokemon');
-    openOnePoke.innerHTML += openOnePokecard();
+async function loadPokeInfo(i) {
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    currentPokemon = await response.json();
+    document.getElementById('onePokemon').innerHTML = openOnePokecard(i);
+    loadInfoDetails(i);
+    setPokeInfoType(i);
+    setColorPokeInfoBg(i);
+    checkSlideNumber(i);
+}
+
+
+function loadInfoDetails(i) {
+    let infoStats = document.getElementById(`stats${i}`);
+    infoStats.innerHTML = '';
+    let stats = currentPokemon['stats'];
+    for (let j = 0; j < stats.length; j++) {
+        let info = stats[j];
+        infoStats.innerHTML += showStats(i, j, info);
+        loadProcessbarValue(i, j, info);
+    }
+}
+
+
+function setPokeInfoType(i) {
+    let types = currentPokemon['types'];
+    for (let j = 0; j < types.length; j++) {
+        let type = types[j]['type']['name'];
+        setColorInfoType(i, j, type);
+    }
+}
+
+
+function setColorPokeInfoBg(i) {
+    let color = currentPokemon['types'][0]['type']['name'];
+    document.getElementById(`onePokemon${i}`).classList.add(`card-${pokeClass}`);
+}
+
+
+function checkSlideNumber(i) {
+    if (i == 1) {
+        document.getElementById(`slideDown`).disabled = true;
+        document.getElementById(`slideDown`).style.opacity = 0.3;
+    } else {
+        document.getElementById(`slideDown`).disabled = false;
+    }
+}
+
+
+function slideDown(i) {
+    i--;
+    loadPokeInfo(i);
+}
+
+
+function slideUp(i) {
+    i++;
+    loadPokeInfo(i);
+}
+
+function loadProcessbarValue(i, j, info) {
+    document.getElementById(`processbarValue${i}${j}`).style.width = `${info['base_stat']}px`;
 }
