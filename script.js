@@ -112,15 +112,21 @@ function loadInfoDetails(i) {
 function setPokeInfoType(i) {
     let types = currentPokemon['types'];
     for (let j = 0; j < types.length; j++) {
-        let type = types[j]['type']['name'];
-        setColorInfoType(i, j, type);
+        let pokeClass = types[j]['type']['name'];
+        document.getElementById(`pokeInfoTypes${i}`).innerHTML += `<button id="pokeInfoType${i}${j}">${pokeClass}</button>`;
+        setColorInfoType(i, j, pokeClass);
     }
 }
 
 
+function setColorInfoType(i, j, pokeClass) {
+    document.getElementById(`pokeInfoType${i}${j}`).classList.add(`card-${pokeClass}`);
+}
+
+
 function setColorPokeInfoBg(i) {
-    let color = currentPokemon['types'][0]['type']['name'];
-    document.getElementById(`onePokemon${i}`).classList.add(`card-${pokeClass}`);
+    let pokeClass = currentPokemon['types'][0]['type']['name'];
+    document.getElementById(`pokeInfoTop${i}`).classList.add(`card-${pokeClass}`);
 }
 
 
