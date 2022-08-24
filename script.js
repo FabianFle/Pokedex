@@ -1,7 +1,7 @@
 let allpokemons = [];
 let currentPokemon;
 let startNumber = 1;
-let pokemonNumbers = 100;
+let pokemonNumbers = 50;
 
 
 async function loadPokemon() {
@@ -10,9 +10,9 @@ async function loadPokemon() {
         let res = await fetch(url);
         currentPokemon = await res.json();
         allpokemons.push(currentPokemon);
-        // console.log(currentPokemon);
         renderPokemonCard(currentPokemon, i);
     }
+    document.getElementById('loadingScreen').classList.add('d-none');
 }
 
 
@@ -38,44 +38,6 @@ function loadPokeClasses(i) {
 }
 
 
-function searchPokemon() {
-    let search = document.getElementById("search-field").value;
-    search = search.toLowerCase();
-    console.log(search);
-    for (let i = 1; i < pokemonNumbers; i++) {
-        let pokemonCard = document.getElementById(`pokemonCard${i}`);
-        let pokemonName = document.getElementById(`pokemonName${i}`).innerHTML;
-        let pokemonId = document.getElementById(`pokemonId${i}`).innerHTML;
-        if (!pokemonName.includes(search) || !pokemonId.includes(search)) {
-            pokemonCard.classList.add('d-none');
-        }
-        else {
-            if (pokemonCard.classList.contains('d-none')) {
-                pokemonCard.classList.remove('d-none');
-            }
-        }
-    }
-}
-
-
-function openResponsivMenu() {
-    document.getElementById('responsMenu').classList.remove('nav-header')
-    document.getElementById('responsMenu').classList.add('navHeaderRespons')
-    document.getElementById('closeMenu').classList.remove('d-none')
-    document.getElementById('openMenu').classList.add('d-none')
-    document.getElementById('h1').classList.remove('d-none')
-    document.getElementById('search-field').classList.remove('d-none')
-}
-
-function closeResponsMenu() {
-    document.getElementById('responsMenu').classList.add('nav-header')
-    document.getElementById('responsMenu').classList.remove('navHeaderRespons')
-    document.getElementById('closeMenu').classList.add('d-none')
-    document.getElementById('openMenu').classList.remove('d-none')
-
-}
-
-
 function firstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -90,10 +52,16 @@ async function loadPokeInfo(i) {
     let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     currentPokemon = await response.json();
     document.getElementById('onePokemon').innerHTML = openOnePokecard(i);
+    document.getElementById('onePokemon').classList.remove('d-none');
     loadInfoDetails(i);
     setPokeInfoType(i);
     setColorPokeInfoBg(i);
     checkSlideNumber(i);
+}
+
+
+function loadingScreenON() {
+    document.getElementById('loadingScreen').classList.remove('d-none');
 }
 
 
@@ -113,7 +81,7 @@ function setPokeInfoType(i) {
     let types = currentPokemon['types'];
     for (let j = 0; j < types.length; j++) {
         let pokeClass = types[j]['type']['name'];
-        document.getElementById(`pokeInfoTypes${i}`).innerHTML += `<button id="pokeInfoType${i}${j}">${pokeClass}</button>`;
+        document.getElementById(`pokeInfoTypes${i}`).innerHTML += `<span id="pokeInfoType${i}${j}">${pokeClass}</span>`;
         setColorInfoType(i, j, pokeClass);
     }
 }
@@ -152,5 +120,5 @@ function slideUp(i) {
 }
 
 function loadProcessbarValue(i, j, info) {
-    document.getElementById(`processbarValue${i}${j}`).style.width = `${info['base_stat']}px`;
+    document.getElementById(`processbarValue${i}${j}`).style.width = `${info['base_stat']}%`;
 }
