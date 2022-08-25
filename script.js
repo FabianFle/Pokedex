@@ -1,7 +1,6 @@
 let allpokemons = [];
 let currentPokemon;
-let startNumber = 1;
-let pokemonNumbers = 50;
+let pokemonNumbers = 20;
 
 
 async function loadPokemon() {
@@ -13,6 +12,7 @@ async function loadPokemon() {
         renderPokemonCard(currentPokemon, i);
     }
     document.getElementById('loadingScreen').classList.add('d-none');
+    document.body.style.overflow = "auto";
 }
 
 
@@ -62,6 +62,7 @@ async function loadPokeInfo(i) {
 
 function loadingScreenON() {
     document.getElementById('loadingScreen').classList.remove('d-none');
+    document.body.style.overflow = "hidden";
 }
 
 
@@ -80,7 +81,7 @@ function loadInfoDetails(i) {
 function setPokeInfoType(i) {
     let types = currentPokemon['types'];
     for (let j = 0; j < types.length; j++) {
-        let pokeClass = types[j]['type']['name'];
+        let pokeClass = firstLetter(types[j]['type']['name']);
         document.getElementById(`pokeInfoTypes${i}`).innerHTML += `<span id="pokeInfoType${i}${j}">${pokeClass}</span>`;
         setColorInfoType(i, j, pokeClass);
     }
@@ -93,7 +94,7 @@ function setColorInfoType(i, j, pokeClass) {
 
 
 function setColorPokeInfoBg(i) {
-    let pokeClass = currentPokemon['types'][0]['type']['name'];
+    let pokeClass = firstLetter(currentPokemon['types'][0]['type']['name']);
     document.getElementById(`pokeInfoTop${i}`).classList.add(`card-${pokeClass}`);
 }
 
@@ -121,4 +122,16 @@ function slideUp(i) {
 
 function loadProcessbarValue(i, j, info) {
     document.getElementById(`processbarValue${i}${j}`).style.width = `${info['base_stat']}%`;
+    let pokeClassBar = firstLetter(currentPokemon['types'][0]['type']['name']);
+    document.getElementById(`processbarValue${i}${j}`).classList.add(`card-${pokeClassBar}`);
+}
+
+
+async function showMorePokeCards() {
+    let morePokeCards = 40;
+    let resultPoke = pokemonNumbers + morePokeCards;
+    pokemonNumbers.push(resultPoke);
+    await loadPokemon();
+    console.log('resultPoke',resultPoke);
+    console.log('pokemonNumbers',pokemonNumbers);
 }

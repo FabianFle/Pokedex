@@ -33,7 +33,7 @@ function openOnePokecard(i) {
                     <div>
                         <div class="h1HeadlineOpenPokeCard">
                             <h1> #${currentPokemon['id']} </h1>
-                            <h1>${currentPokemon['name']}</h1>
+                            <h1>${firstLetter(currentPokemon['name'])}</h1>
                         </div>
                         <div id="pokeInfoTypes${i}" class="pokeInfoTypes"></div>
                     </div>

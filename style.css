@@ -261,6 +261,42 @@ h2 {
     display: flex;
 }
 
+.boxShadowDiv {
+    margin-bottom: 30px;
+    width: 100%;
+    height: 1px;
+    box-shadow: 0px 5px 5px 0px rgba(255, 255, 255, 0.75);
+}
+
+.boxShadowAndText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textShadowBox {
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 
+    rgb(0, 0, 0) 2px 2px 0px,
+    rgb(0, 0, 0) 2px -2px 0px,
+    rgb(0, 0, 0) -2px 2px 0px, 
+    rgb(0, 0, 0) -2px -2px 0px, 
+    rgb(0, 0, 0) 2px 0px 0px, 
+    rgb(0, 0, 0) 0px 2px 0px,
+    rgb(0, 0, 0) -2px 0px 0px, 
+    rgb(0, 0, 0) 0px -2px 0px;
+    transition: all 125ms ease-in-out;
+}
+
+.textShadowBox:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 125ms ease-in-out;
+}
+
 .infoDetails h1 {
     margin-top: 16px;
     margin-bottom: 16px;
@@ -332,7 +368,7 @@ h2 {
     margin-top: -40px;
 }
 
-.slideButton1{
+.slideButton1 {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.3);
     display: flex;
@@ -345,7 +381,7 @@ h2 {
     transition: all 225ms ease-in-out;
 }
 
-.slideButton2{
+.slideButton2 {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.3);
     display: flex;
@@ -384,20 +420,19 @@ h2 {
 }
 
 .processbar {
+    overflow: hidden;
     width: 100%;
     border: 1px solid white;
     border-radius: 100px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .processbar span {
     font-size: 15px;
     padding-left: 16px;
-    padding-top: 2.5px;
 }
 
 .processbarValue {
-    background-color: rgb(136, 0, 63);
     border-radius: 100px;
     animation: scale-up 1s ease-in-out;
     transform-origin: 0%;
