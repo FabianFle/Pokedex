@@ -1,10 +1,11 @@
 let allpokemons = [];
 let currentPokemon;
+let start = 1;
 let pokemonNumbers = 20;
 
 
 async function loadPokemon() {
-    for (let i = 1; i < pokemonNumbers; i++) {
+    for (let i = start; i < pokemonNumbers; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let res = await fetch(url);
         currentPokemon = await res.json();
@@ -13,6 +14,7 @@ async function loadPokemon() {
     }
     document.getElementById('loadingScreen').classList.add('d-none');
     document.body.style.overflow = "auto";
+    console.log('Pokemons= ', currentPokemon);
 }
 
 
@@ -128,10 +130,36 @@ function loadProcessbarValue(i, j, info) {
 
 
 async function showMorePokeCards() {
-    let morePokeCards = 40;
-    let resultPoke = pokemonNumbers + morePokeCards;
-    pokemonNumbers.push(resultPoke);
+    pokemonNumbers += 19;
+    start += 19;
     await loadPokemon();
-    console.log('resultPoke',resultPoke);
-    console.log('pokemonNumbers',pokemonNumbers);
+}
+
+
+function searchPokemon() {
+    let input = document.getElementById('searchPokeCard').value;
+    input = input.toLowerCase();
+    let cardContent = document.getElementById('allpokemon');
+    cardContent.innerHTML = '';
+    for (let i = 0; i < allpokemons.length; i++) {
+        currentPokemon = allpokemons[i]
+        console.log(allpokemons);
+        let Name = allpokemons[i]['name'];
+        let ID = allpokemons[i]['id'];
+        if (Name.includes(input) && ID.includes(input)) {
+            renderPokemonCard(currentPokemon, i);
+        } else {
+            cardContent.classList.add('d-none');
+        }
+    }
+    checkInput();
+}
+
+
+function checkInput() {
+    let checkInput = document.getElementById('searchPokeCard');
+
+    if (checkInput = '') {
+        loadPokemon();
+    }
 }
